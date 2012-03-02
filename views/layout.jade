@@ -1,0 +1,33 @@
+!!! 5
+html
+  head
+    title= 'balbonidev'
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type='text/javascript', src='http://use.typekit.com/hsy1rer.js')
+    script(type='text/javascript')
+        try{Typekit.load();}catch(e){}
+    script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+    script(type='text/javascript', src='/javascripts/jquery.color.js')
+    script(type='text/javascript')
+        $(document).ready(function () {
+            $("nav #menu li a").hover(function() {
+                $(this).css("color","#000");
+            }, function () {
+                $(this).animate({
+                color: '#aaa'
+                }, 200, function() {
+                    console.log("off");
+                });
+            });
+            $("#contact_form_send").click(function () { $.post("/contact", $("#contact_form").serialize()); return false; });
+        });
+  body
+    != body
+    footer
+        .page
+            section.
+                Jeff Balboni<br/>
+                (423) XXX-XXXX<br/>
+                jeff@balbonidev.com<br/>
+                @jeffbalboni<br/>
+                Linked In<br/>
