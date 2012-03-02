@@ -39,7 +39,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/contact', function(req, res){
-  var mg = new Mailgun('${mailgun_apikey');
+  var mg = new Mailgun('${mailgun_apikey}');
   mg.sendText('site@balbonidev.mailgun.org',
          ['jbalboni@gmail.com'],
          'Balbonidev site: '+req.body.contact_subject,
