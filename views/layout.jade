@@ -22,7 +22,18 @@ html
             $("#contact_form_send").click(function () { $.post("/contact", $("#contact_form").serialize()); return false; });
         });
   body
-    != body
+    .page
+        nav
+            ul#menu
+                li: a(href='#') About
+                li: a(href='/contact') Contact
+                li: a(href='#') Blog
+                li: a(href='#') Work
+        header
+            a(href='/')
+                #logo.
+                    JB
+        != body
     footer
         .page
             section.

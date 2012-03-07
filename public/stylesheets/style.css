@@ -72,9 +72,13 @@ header {
 	margin-left: -180px;
 }
 
+header a {
+	text-decoration: none;
+}
+
 #logo {
 	width: 150px;
-	height:150px;
+	height:120px;
 	background: url('/images/jb-logo2.png') top left no-repeat;
 	color: #fff;
 	font-size: 90px;
@@ -156,7 +160,7 @@ footer {
 	border-bottom: 0px solid #FFF;
 	margin-top: 30px;
 	margin-bottom: 30px;
-	width: 90%;
+	width: 70%;
 }
 .home_section > hgroup, #main_description > hgroup {
 	font-size: 140%;
@@ -166,10 +170,14 @@ footer {
 	font-family: "adelle" !important;
 }
 ul.bullet_points {
-	list-style-image: url('/images/tick.png');
-	margin-left: 40px;
+	margin-left: 0px; 
+}
+ul.bullet_points li {
+	background-image: url('/images/tick.png');
 	background-repeat: no-repeat;
-	background-position: left center; 
+	background-position: 0px 0px; 
+	padding-left: 30px; 
+	line-height: 28px;
 }
 #contact_form label {
 	font-family: "adelle", sans-serif;
@@ -207,4 +215,26 @@ ul.bullet_points {
 	color: #444;
 	font-size:70%;
 }
-	
+
+@media screen and (max-width: 1400px) {
+	header {
+		position: static;
+		width: 200px;
+		margin: 0px auto;
+
+	}
+	nav {
+		position: static;
+		margin: 0px auto;
+		text-align: center;
+		padding: 10px 0px;
+		width: 70%;
+	}
+	nav ul li {
+		display: inline-block;
+		width: 25%;
+	}
+	#page_header {
+		padding-top: 0px;
+	}
+}

@@ -1,61 +1,31 @@
-.page
-    header
-        #logo.
-            JB
-    nav
-        ul#menu
-            li: a(href='#') About
-            li: a(href='#') Contact
-            li: a(href='#') Blog
-            li: a(href='#') Work
-    #page_header 
-        span(class='highlight') Web development, 
-        | straight to the point.
-    #content
-        section#main_description
-            hgroup: h2 Who I am
-            | My name is Jeff Balboni and I'm a web developer in the Johnson City, TN area. I've worked in the software industry for almost six years and have
-            | a degree in Computer Science from Montana State University. I'm available for freelance web development on a part-time or volunteer basis. Take a look at 
-            | my resume, some of my public work, or contact me if you have any questions.
-        hr.separator
-        section#believe(class='home_section')
-            hgroup: h2 What I believe in
-            ul(class='bullet_points')
-                li Web design that doesn't get in the way
-                li An open, standards-based web
-            ul(class='bullet_points')
-                li Responsive design that works wherever you're using the web
-                li Making the web easier for everyone
-        hr.separator
-        section#services(class='home_section')
-            hgroup: h2 What you get
-            ul(class='bullet_points')
-                li An HTML5-based design that works on modern browsers
-                li A site that works well on modern smartphones
-            ul(class='bullet_points')
-                li A clean design that accomplishes your goals without annoying your users
-                li A reasonable rate (or no rate, if it's for a good cause)
-        hr.separator
-        section#contact(class='home_section')
-            hgroup: h2 Contact Me
-            section
-                form(name='contact_form', id='contact_form', method='POST')
-                    label(for='contact_name') Name
-                    br
-                    input(type='text', id='contact_name', name='contact_name')
-                    br
-                    label(for='contact_email') Email
-                    br
-                    input(type='email', id='contact_email', name='contact_email', placeholder='xyz@domain.com')
-                    br
-                    label(for='contact_subject') Subject
-                    br
-                    input(type='text', id='contact_subject', name='contact_subject')
-                    br
-                    label(for='contact_msg') Message
-                    br
-                    textarea#contact_msg(name='contact_msg')
-                    br
-                    p
-                        button#contact_form_send Send Email
-                        span.contact (you can also use the information at the bottom of the page)
+#page_header 
+    span(class='highlight') Web development, 
+    | straight to the point.
+#content
+    section#main_description
+        hgroup: h2 Who I am
+        | My name is Jeff Balboni and I'm a web developer in the Johnson City, TN area. I've worked in the software industry for almost six years and have
+        | a degree in Computer Science from Montana State University. I'm available for freelance web development on a part-time or volunteer basis. Take a look at 
+        | my resume, some of my public work, or contact me if you have any questions.
+    hr.separator
+    section#believe(class='home_section')
+        hgroup: h2 What I believe in
+        ul(class='bullet_points')
+            li Web design that doesn't get in the way
+            li An open, standards-based web
+        ul(class='bullet_points')
+            li Responsive design that works wherever you're using the web
+            li Making the web easier for everyone
+    hr.separator
+    section#services(class='home_section')
+        hgroup: h2 What you get
+        ul(class='bullet_points')
+            li An HTML5-based design that works on modern browsers
+            li A site that works well on modern smartphones
+        ul(class='bullet_points')
+            li A clean design that accomplishes your goals without annoying your users
+            li A reasonable rate (or no rate, if it's for a good cause)
+    hr.separator
+    section#contact(class='home_section')
+        hgroup: h2 Contact Me
+        include contact_form

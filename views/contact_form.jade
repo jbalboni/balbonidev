@@ -1,0 +1,21 @@
+section
+    form(name='contact_form', id='contact_form', method='POST')
+        label(for='contact_name') Name
+        br
+        input(type='text', id='contact_name', name='contact_name')
+        br
+        label(for='contact_email') Email
+        br
+        input(type='email', id='contact_email', name='contact_email', placeholder='xyz@domain.com')
+        br
+        label(for='contact_subject') Subject
+        br
+        input(type='text', id='contact_subject', name='contact_subject')
+        br
+        label(for='contact_msg') Message
+        br
+        textarea#contact_msg(name='contact_msg')
+        br
+        p
+            button#contact_form_send Send Email
+            span.contact (you can also use the information at the bottom of the page)
