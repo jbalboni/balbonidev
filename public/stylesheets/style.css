@@ -58,6 +58,12 @@ table {
 body {
 	font-size: 130%;
 	background-color: #f7f7f7;
+	height: 100%;
+	font-family: serif;
+}
+
+html {
+	height:100%;
 }
 
 #page_top {
@@ -74,6 +80,10 @@ header {
 
 header a {
 	text-decoration: none;
+}
+
+#content {
+	line-height: 1.2em;
 }
 
 #logo {
@@ -142,13 +152,61 @@ nav ul a {
 	color: #000;
 }
 
+.imagelinks {
+	padding-bottom: 10px;
+}
+
+a.imglink:hover {
+	text-decoration: none !important;
+}
+
 footer {
-	height:100px;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4D4), to(#4A4));
+	font-family: helvetica;
+	color: #777;
+}
+
+footer a {
+	color: #777;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+footer a:hover {
+	text-decoration: underline;
+}
+
+footer.main {
+	height:85px;
+	background: #ccc;
 	font-size: 75%;
 	padding: 10px;
-	border-top: 1px solid #4A4;
-	clear:both;
+	line-height: 1.3em;
+}
+
+footer.bottom {
+	background: #aaa;
+	font-size: 65%;
+	padding: 5px;
+	line-height: 15px;
+	color: #555;
+}
+
+footer section.right {
+	float:right;
+}
+
+footer section.left {
+	float:left;
+}
+
+.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -4em;
+}
+footer.full, .push {
+	height: 125px;
 }
 
 #content {	
@@ -216,10 +274,28 @@ ul.bullet_points li {
 	font-size:70%;
 }
 
+img.twitter, img.linkedin {
+	height: 48px;
+	margin: 5px;
+}
+
+p {
+	display: block;
+	padding: 10px 0px;
+}
+
+a {
+	color: #4B4;
+}
+
+a:hover {
+	color: #3A3;
+}
+
 @media screen and (max-width: 1400px) {
 	header {
 		position: static;
-		width: 200px;
+		width: 155px;
 		margin: 0px auto;
 
 	}

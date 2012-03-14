@@ -42,6 +42,10 @@ app.get('/contact', function(req, res){
   res.render('contact');
 });
 
+app.get('/about', function(req, res){
+  res.render('about');
+});
+
 app.post('/contact', function(req, res){
   var mg = new Mailgun('${mailgun_apikey}');
   mg.sendText('site@balbonidev.mailgun.org',

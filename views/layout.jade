@@ -22,23 +22,32 @@ html
             $("#contact_form_send").click(function () { $.post("/contact", $("#contact_form").serialize()); return false; });
         });
   body
-    .page
-        nav
-            ul#menu
-                li: a(href='#') About
-                li: a(href='/contact') Contact
-                li: a(href='#') Blog
-                li: a(href='#') Work
-        header
-            a(href='/')
-                #logo.
-                    JB
-        != body
-    footer
+    .wrapper
         .page
+            nav
+                ul#menu
+                    li: a(href='/about') About
+                    li: a(href='/contact') Contact
+                    li: a(href='#') Blog
+                    li: a(href='#') Work
+            header
+                a(href='/')
+                    #logo.
+                        JB
+            != body
+        .push
+    footer.full
+        footer.main
+            .page
+                section.left.
+                    (423) XXX-XXXX<br/>
+                    <a href="mailto:jeff@speedkill.org">jeff@speedkill.org</a><br/>
+                    <a href="https://twitter.com/#!/jeffbalboni">@jeffbalboni</a><br/>
+                    <a href="http://www.linkedin.com/profile/view?id=50714368">Linked In</a><br/>
+                section.right.
+                    <a href="http://www.w3.org/html/logo/" class="imglink">
+                    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-solo.png" width="47" height="48" alt="HTML5 Powered" title="HTML5 Powered">
+                    </a>
+        footer.bottom
             section.
-                Jeff Balboni<br/>
-                (423) XXX-XXXX<br/>
-                jeff@balbonidev.com<br/>
-                @jeffbalboni<br/>
-                Linked In<br/>
+                Jeff Balboni, 2012
