@@ -5,7 +5,8 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , Mailgun = require('mailgun').Mailgun;
+  , Mailgun = require('mailgun').Mailgun
+  , mongoose = require('mongoose');
 
 var app = module.exports = express.createServer();
 
@@ -24,6 +25,7 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  //mongoose.connect('mongodb://localhost/balbonidev');
 });
 
 app.configure('production', function(){

@@ -60,6 +60,7 @@ body {
 	background-color: #f7f7f7;
 	height: 100%;
 	font-family: serif;
+	color: #333;
 }
 
 html {
@@ -161,7 +162,7 @@ a.imglink:hover {
 }
 
 footer {
-	font-family: helvetica;
+	font-family: arial, sans-serif;
 	color: #777;
 }
 
@@ -177,7 +178,6 @@ footer a:hover {
 
 footer.main {
 	height:85px;
-	background: #ccc;
 	font-size: 75%;
 	padding: 10px;
 	line-height: 1.3em;
@@ -193,10 +193,19 @@ footer.bottom {
 
 footer section.right {
 	float:right;
+	width: 31%;
 }
 
 footer section.left {
 	float:left;
+	width: 31%;
+}
+
+.divider {
+	height: 50px;
+	background-color: #e3e3e3;
+	border-bottom: 5px solid #4C4;
+	margin-bottom: 10px;
 }
 
 .wrapper {
@@ -206,7 +215,7 @@ footer section.left {
 	margin: 0 auto -4em;
 }
 footer.full, .push {
-	height: 125px;
+	height: 105px;
 }
 
 #content {	
@@ -290,6 +299,13 @@ a {
 
 a:hover {
 	color: #3A3;
+}
+
+h3 {
+	color: #4A4;
+	font-weight: bold;
+	font-family: "adelle", sans-serif;
+	text-transform: uppercase;
 }
 
 @media screen and (max-width: 1400px) {
