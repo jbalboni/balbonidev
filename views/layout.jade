@@ -3,6 +3,8 @@ html
   head
     title= 'balbonidev'
     link(rel='stylesheet', href='/stylesheets/style.css')
+    //if lt IE 9
+        script(src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js")
     script(type='text/javascript', src='http://use.typekit.com/hsy1rer.js')
     script(type='text/javascript')
         try{Typekit.load();}catch(e){}
@@ -48,8 +50,6 @@ html
                     <a href="http://www.linkedin.com/profile/view?id=50714368">Linked In</a><br/>
                 section.left
                     h3 Site
-                    a(href="/") Home 
-                    br
                     a(href="/about") About
                     br
                     a(href="/contact") Contact
@@ -57,8 +57,14 @@ html
                     a(href="/work") Work
                     br
                     a(href="/blog") Blog
-                section.right.
-                    <h3>Tech</h3>
-                    <a href="http://www.w3.org/html/logo/" class="imglink">
-                    <img src="http://www.w3.org/html/logo/badge/html5-badge-h-solo.png" width="47" height="48" alt="HTML5 Powered" title="HTML5 Powered">
-                    </a>
+                section.left
+                    h3 Tech
+                    a(href="http://www.w3.org/html/") HTML5
+                    br
+                    a(href="http://expressjs.com") Express
+                    br
+                    a(href="http://nodejs.org") Node
+                    br
+                    a(href="http://linode.com") Linode
+                    br
+                    

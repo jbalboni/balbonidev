@@ -59,7 +59,7 @@ body {
 	font-size: 130%;
 	background-color: #f7f7f7;
 	height: 100%;
-	font-family: serif;
+	font-family: Georgia, serif;
 	color: #333;
 }
 
@@ -327,6 +327,10 @@ h3 {
 		width: 25%;
 	}
 	#page_header {
-		padding-top: 0px;
+		padding-top: 30px;
+		height: auto;
+	}
+	#page_header.home {
+		padding-bottom: 50px;
 	}
 }
