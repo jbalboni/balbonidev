@@ -1,8 +1,10 @@
 !!! 5
 html
   head
-    title= 'balbonidev'
+    title= 'Balboni Dev'
+    meta(name="viewport",content="initial-scale=1.0, width=device-width")
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/javascripts/fancybox/jquery.fancybox-1.3.4.css')
     //if lt IE 9
         script(src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js")
     script(type='text/javascript', src='http://use.typekit.com/hsy1rer.js')
@@ -10,6 +12,8 @@ html
         try{Typekit.load();}catch(e){}
     script(type='text/javascript', src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
     script(type='text/javascript', src='/javascripts/jquery.color.js')
+    script(type='text/javascript', src='/javascripts/jquery.scrollTo-1.4.2-min.js')
+    script(type='text/javascript', src='/javascripts/fancybox/jquery.fancybox-1.3.4.pack.js')
     script(type='text/javascript')
         $(document).ready(function () {
             $("nav #menu li a").hover(function() {
@@ -21,7 +25,10 @@ html
                     console.log("off");
                 });
             });
-            $("#contact_form_send").click(function () { $.post("/contact", $("#contact_form").serialize()); return false; });
+            $("#contact_form_send").click(function () { $.post("/contact/", $("#contact_form").serialize()); return false; }
+            );
+            $("#scrollTop").click(function() { $(document).scrollTo("0px", 300); });
+            $("a.work_images").fancybox();
         });
     script(type='text/javascript')
         var _gaq = _gaq || [];
@@ -41,7 +48,7 @@ html
                     li: a(href='/about') About
                     li: a(href='/contact') Contact
                     li: a(href='#') Blog
-                    li: a(href='#') Work
+                    li: a(href='/work') Work
             header
                 a(href='/')
                     #logo.
@@ -50,6 +57,11 @@ html
         .push
     footer.full
         .divider
+            .page 
+                a(href="/",title="Home") 
+                    img(src="/images/home.png")
+                a#scrollTop(href="javascript:void(0);",title="Top") 
+                    img(src="/images/arrow_up.png")
         footer.main
             .page
                 section.left.

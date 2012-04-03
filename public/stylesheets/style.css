@@ -110,8 +110,8 @@ header a {
 	font-family: "adelle" !important;
 }
 #page_header {
-	padding: 1.5em 0px 0px;
-	height: 90px;
+	padding: 63px 0px 0px;
+	height: 100px;
 	font-size: 2em;
 	text-align: center;
 	font-family: "adelle" !important;
@@ -219,7 +219,7 @@ footer.full, .push {
 }
 
 #content {	
-	padding: 10px;
+	padding: 5px 10px;
 }
 
 .separator {
@@ -229,12 +229,13 @@ footer.full, .push {
 	margin-bottom: 30px;
 	width: 70%;
 }
-.home_section > hgroup, #main_description > hgroup {
+hgroup h2 {
 	font-size: 140%;
 	color: #4C4;
-	font-weight: bold;
-	padding-bottom: 10px;
 	font-family: "adelle" !important;
+}
+hgroup {
+	padding-bottom: 10px;
 }
 ul.bullet_points {
 	margin-left: 0px; 
@@ -267,7 +268,12 @@ ul.bullet_points li {
 	padding: 12px;
 	border-radius: 5px;
 	border: 1px solid #494;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4C4), to(#4A4));
+	background: #4c4;
+	background-image: linear-gradient(bottom, rgb(68,170,68) 20%, rgb(68,187,68) 50%, rgb(68,204,68) 80%);
+	background-image: -o-linear-gradient(bottom, rgb(68,170,68) 20%, rgb(68,187,68) 50%, rgb(68,204,68) 80%);
+	background-image: -moz-linear-gradient(bottom, rgb(68,170,68) 20%, rgb(68,187,68) 50%, rgb(68,204,68) 80%);
+	background-image: -webkit-linear-gradient(bottom, rgb(68,170,68) 20%, rgb(68,187,68) 50%, rgb(68,204,68) 80%);
+	background-image: -ms-linear-gradient(bottom, rgb(68,170,68) 20%, rgb(68,187,68) 50%, rgb(68,204,68) 80%);
 	color: white;
 	font-family: "adelle", sans-serif;
 	font-size: 90%;
@@ -275,7 +281,12 @@ ul.bullet_points li {
 	cursor: pointer;
 }
 #contact_form button:hover {
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(#4B4), to(#494));
+	background: #494;
+	background-image: linear-gradient(bottom, rgb(68,153,68) 20%, rgb(68,170,68) 50%, rgb(68,187,68) 80%);
+	background-image: -o-linear-gradient(bottom, rgb(68,153,68) 20%, rgb(68,170,68) 50%, rgb(68,187,68) 80%);
+	background-image: -moz-linear-gradient(bottom, rgb(68,153,68) 20%, rgb(68,170,68) 50%, rgb(68,187,68) 80%);
+	background-image: -webkit-linear-gradient(bottom, rgb(68,153,68) 20%, rgb(68,170,68) 50%, rgb(68,187,68) 80%);
+	background-image: -ms-linear-gradient(bottom, rgb(68,153,68) 20%, rgb(68,170,68) 50%, rgb(68,187,68) 80%);
 	border: 1px solid #484;
 }
 .contact {
@@ -308,6 +319,35 @@ h3 {
 	text-transform: uppercase;
 }
 
+.divider img {
+	padding-top:15px;
+	padding-right:15px;
+}
+
+.divider {
+	text-align: right;
+}
+
+img.thumbnail {
+	border: 5px solid #e3e3e3;
+	max-width: 47%;
+	margin-right: 10px;
+}
+
+h4.work_date {
+	font-size: 80%;
+}
+
+.text {
+	text-align:justify;
+	text-justify:inter-word;
+}
+
+input, #contact_form textarea {
+		width: 90%;
+		max-width: 500px;
+	}
+
 @media screen and (max-width: 1400px) {
 	header {
 		position: static;
@@ -328,9 +368,68 @@ h3 {
 	}
 	#page_header {
 		padding-top: 30px;
+		padding-bottom: 30px;
 		height: auto;
 	}
 	#page_header.home {
 		padding-bottom: 50px;
+	}
+}
+
+@media screen and (max-width: 780px) {
+	nav {
+		width: 100%;
+	}
+	nav ul li {
+		font-size: 90%;
+	}
+	input, #contact_form textarea {
+		width: 90%;
+	}
+	span.contact {
+		display:block;
+	}
+	.divider {
+		height: 35px;
+		background-color: #e3e3e3;
+		border-bottom: 3px solid #4C4;
+		margin-bottom: 7px;
+	}
+	.divider img {
+		padding-top:7px;
+		padding-right:20px;
+	}
+	footer section.left {
+		width: auto;
+		padding-right: 10px;
+		min-width:25%;
+	}
+
+}
+
+@media screen and (max-width: 625px) {
+	body {
+		font-size: 100%;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	body {
+		font-size: 90%;
+	}
+	header {
+		width: 77px;
+	}
+	#logo {
+		width: 75px;
+		height:60px;
+		background: url('/images/jb_logo_mobile.png') top left no-repeat;
+		color: #fff;
+		font-size: 40px;
+		padding-left: 14px;
+		padding-top: 22px;
+	}
+	nav {
+		font-size: 90%;
 	}
 }

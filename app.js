@@ -5,8 +5,8 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , Mailgun = require('mailgun').Mailgun
-  , mongoose = require('mongoose');
+  , markdown = require('markdown').markdown
+  , fs = require('fs');
 
 var app = module.exports = express.createServer();
 
@@ -32,30 +32,70 @@ app.configure('production', function(){
   app.use(express.errorHandler());
 });
 
-// Routes
+app.helpers({ md: function(text){
+  return markdown.toHTML(text);
+}, monthName: function(month){
+  var monthNames = [ "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December" ];
+  return monthNames[month];
+}})
 
-//app.get('/', routes.index);
+// Bootstrap controllers
 
-app.get('/', function(req, res){
-  res.render('index');
-});
+function bootControllers(app) {
+  fs.readdir(__dirname + '/controllers', function(err, files){
+    if (err) throw err;
+    files.forEach(function(file){
+      bootController(app, file);
+    });
+  });
+}
 
-app.get('/contact', function(req, res){
-  res.render('contact');
-});
+// Example (simplistic) controller support
 
-app.get('/about', function(req, res){
-  res.render('about');
-});
+function bootController(app, file) {
+  var name = file.replace('.js', '')
+    , controller = require('./controllers/' + name)
+    , prefix = '/' + name; 
 
-app.post('/contact', function(req, res){
-  var mg = new Mailgun('${mailgun_apikey}');
-  mg.sendText('site@balbonidev.mailgun.org',
-         ['jbalboni@gmail.com'],
-         'Balbonidev site: '+req.body.contact_subject,
-         req.body.contact_msg,
-         function(err) { err && console.log(err) });
-});
+  // Special case for "app"
+  if (name == 'app') prefix = '/';
+
+  Object.keys(controller).map(function(action){
+    var fn,custom_route,custom_method;
+    if (controller[action].route) {
+      fn = controller[action].action;
+      custom_route = prefix+controller[action].route;
+      custom_method = controller[action].method;
+    } else {
+      fn = controller[action];
+    }
+    switch(action) {
+      case 'index':
+        app.get(prefix, fn);
+        break;
+      case 'view':
+        app.get(prefix + '/:id', fn);
+        break;
+      case 'add':
+        app.all(prefix + '/add', fn);
+        break;
+      case 'edit':
+        app.get(prefix + '/:id/edit', fn);
+        break;
+      case 'update':
+        app.put(prefix + '/:id', fn);
+        break;
+      case 'destroy':
+        app.del(prefix + '/:id', fn);
+        break;
+      default:
+        app[custom_method](custom_route,fn);
+    }
+  });
+}
+
+bootControllers(app);
 
 app.listen(3000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

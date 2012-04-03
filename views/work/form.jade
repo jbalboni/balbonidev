@@ -1,0 +1,36 @@
+#page_header 
+  span(class='highlight') Add Work.
+#content
+  if work.title
+      h2 Editing #{work.workId}
+    else
+      h2 New work
+  form#work(action='/work' + (work.workId ? '/' + work.workId : ''), method='post')
+      if work.workId
+        input(type='hidden', name='_method', value='put')
+      p
+        label(for='work[title]') Title:
+        br
+        input(type='text', name='work[title]', value=work.title)
+      p
+        label(for='work[workId]') Work Id:
+        br
+        input(type='text', name='work[workId]', value=work.workId)
+      p
+        label(for='work[workId]') Date:
+        br
+        input(type='text', name='work[date]', value=work.date)
+      p
+        label(for='work[body]') Body:
+        br
+        textarea(name='work[body]')= work.body || ''
+      p
+        label(for='work[link]') Link:
+        br
+        input(type='text', name='work[link]', value=work.link)
+      p
+        label(for='work[source]') Source Link:
+        br
+        input(type='text', name='work[source]', value=work.source)
+      p
+        input(type='submit', value=work.workId ? 'Update' : 'Create')

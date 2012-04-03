@@ -1,0 +1,16 @@
+hgroup
+	h2= item.title
+	h4.work_date
+		!= monthName(item.date.getMonth()) + ", " + item.date.getFullYear()
+section.text
+	!= md(item.body)
+p
+	each image in item.images 
+		a(href="/images/"+image.name).work_images 
+			img(src="/images/small_"+image.name).thumbnail
+if item.link
+	a(href=item.link) link
+	if item.source
+		|  |
+if item.source
+	a(href=item.source) source
