@@ -51,6 +51,11 @@ function bootControllers(app) {
   });
 }
 
+//I only need really simple auth for this site
+var auth = express.basicAuth(function(user, pass) {   
+ return (user=='jeff'&&pass=='${http_pass}') ? true : false;
+});
+
 // Example (simplistic) controller support
 
 function bootController(app, file) {
@@ -78,16 +83,16 @@ function bootController(app, file) {
         app.get(prefix + '/:id', fn);
         break;
       case 'add':
-        app.all(prefix + '/add', fn);
+        app.all(prefix + '/add', auth, fn);
         break;
       case 'edit':
-        app.get(prefix + '/:id/edit', fn);
+        app.get(prefix + '/:id/edit', auth, fn);
         break;
       case 'update':
-        app.put(prefix + '/:id', fn);
+        app.put(prefix + '/:id', auth, fn);
         break;
       case 'destroy':
-        app.del(prefix + '/:id', fn);
+        app.del(prefix + '/:id', auth, fn);
         break;
       default:
         app[custom_method](custom_route,fn);

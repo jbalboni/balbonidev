@@ -2,9 +2,9 @@ var mongoose = require('mongoose')
   , WorkModel = require('../models/work').WorkModel;
 
 exports.index = function(req, res){
-  WorkModel.find({},function(err, docs) {
+  WorkModel.find({},null,{ sort: { "date":-1 } },function(err, docs) {
     res.render('work/index',{items: docs});
-  }).sort("date",-1);
+  });
 };
 
 exports.add = function(req, res){
@@ -18,18 +18,24 @@ exports.add = function(req, res){
       res.redirect('/work');
     })
   } else {
-    res.render('work/form', {work: {}});
+    res.render('work/form', {work: {images:[{},{}]}});
   }
 };
 
 exports.edit = function(req, res){
-  WorkModel.findOne({workId: req.params.workId},function(err, doc) {
+  WorkModel.findOne({workId: req.params.id},function(err, doc) {
+    if (doc.images.length == 0) {
+      doc.images.push({});
+      doc.images.push({});
+    } else if (doc.images.length == 1) {
+      doc.images.push({});
+    }
     res.render('work/form',{work: doc});
   });
 };
 
 exports.update = function(req, res){
-  WorkModel.update({workId: req.params.workId},req.body.work,null,function(err, numAffected) {
+  WorkModel.update({workId: req.params.id},req.body.work,null,function(err, numAffected) {
     if (err) {
       console.log(err);
     } else {
@@ -40,7 +46,7 @@ exports.update = function(req, res){
 };
 
 exports.view = function(req, res){
-  WorkModel.findOne({workId: req.params.workId},function(err, doc) {
+  WorkModel.findOne({workId: req.params.id},function(err, doc) {
     res.render('work/view',{item: doc});
   });
 };

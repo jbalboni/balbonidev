@@ -5,7 +5,7 @@
       h2 Editing #{work.workId}
     else
       h2 New work
-  form#work(action='/work' + (work.workId ? '/' + work.workId : ''), method='post')
+  form#work(action='/work' + (work.workId ? '/' + work.workId : '/add'), method='post')
       if work.workId
         input(type='hidden', name='_method', value='put')
       p
@@ -32,5 +32,30 @@
         label(for='work[source]') Source Link:
         br
         input(type='text', name='work[source]', value=work.source)
+      p Images:
+      if !work.workId 
+        p
+          label(for='work[images][name][0]') Name:
+          input(type='text', name='work[images][name][0]')
+        p
+          label(for='work[images][caption][0]') Caption:
+          input(type='text', name='work[images][caption][0]')
+        p
+          label(for='work[images][name][1]') Name:
+          input(type='text', name='work[images][name][1]')
+        p
+          label(for='work[images][caption][1]') Caption:
+          input(type='text', name='work[images][caption][1]')
+      else
+        - var i = 0;
+        each image in work.images
+          p
+            label(for='work[images]['+i+'][name]') Name:
+            input(type='text', name='work[images]['+i+'][name]', value=image.name)
+          p
+            label(for='work[images]['+i+'][caption]') Caption:
+            input(type='text', name='work[images]['+i+'][caption]', value=image.caption)
+          hr.separator
+          - i++;
       p
         input(type='submit', value=work.workId ? 'Update' : 'Create')
