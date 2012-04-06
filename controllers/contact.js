@@ -5,7 +5,7 @@ exports.index = function(req, res){
 };
 
 exports.contact = {route:"/", method: "post", action: function(req, res){
-  var mg = new Mailgun('key-9g93dkn8welc5uex-mwlquswwdv6xvc5');
+  var mg = new Mailgun('${mailgun_apikey}');
   mg.sendText('site@balbonidev.mailgun.org',
          ['jbalboni@gmail.com'],
          'Balbonidev site: '+req.body.contact_subject,
